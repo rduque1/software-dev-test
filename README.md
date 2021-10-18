@@ -24,7 +24,7 @@ npm start
 ### Run with docker
 ```bash
 docker build -t <my-image-name> .
-docker run -it --rm -p 3000:3000 <my-image-name>
+docker run -it --rm -p 8001:8001 <my-image-name>
 ```
 
 

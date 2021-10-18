@@ -45,7 +45,7 @@ export default function App (props) {
 
   async function stop () {
     setIsStopped(true)
-    await fetch('/end', {
+    await fetch('/stop', {
       ...defaultPUTOptions,
       body: JSON.stringify(imgObj || {})
     })

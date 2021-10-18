@@ -32,6 +32,7 @@ router.get('/getDog', async (req, res, next) => {
     const breed = breeds[breedIdx]
     imageObj = await DogService.getRandomImage(breed)
     res.cookie('breedIdx', breedIdx + 1, cookieOpts)
+    res.cookie('last_imgObj', JSON.stringify(imageObj), cookieOpts)
   }
   res.send(imageObj)
 })
@@ -41,10 +42,12 @@ router.put('/start', (req, res, next) => {
   res.sendStatus(204)
 })
 
-router.put('/end', (req, res, next) => {
-  const imageObj = req.body
-  if (imageObj && imageObj.image && imageObj.name) {
-    res.cookie('imageObj', JSON.stringify(imageObj), cookieOpts)
+router.put('/stop', (req, res, next) => {
+  if (req.signedCookies.last_imgObj) {
+    const imageObj = JSON.parse(req.signedCookies.last_imgObj)
+    if (imageObj && imageObj.image && imageObj.name) {
+      res.cookie('imageObj', JSON.stringify(imageObj), cookieOpts)
+    }
   }
   res.sendStatus(204)
 })

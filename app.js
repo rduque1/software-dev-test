@@ -17,7 +17,6 @@ app.set('view engine', 'hbs')
 
 process.env.NODE_ENV !== 'test' && app.use(logger('dev'))
 app.use(cookieParser(SECRET))
-app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))

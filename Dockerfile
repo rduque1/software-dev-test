@@ -7,9 +7,8 @@ COPY yarn.lock .
 RUN yarn
 
 RUN chown node:node /usr/app
-COPY --chown=node:node . .
-
 RUN chown -R node:node node_modules
+COPY --chown=node:node . .
 
 USER node
 
