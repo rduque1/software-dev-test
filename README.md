@@ -1,5 +1,7 @@
 # Software Development Test
 
+Small express app that will show random dog images.
+
 ## Install
 
 ### Prerequisites
