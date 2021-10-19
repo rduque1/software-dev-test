@@ -6,7 +6,7 @@ Small express app that will show random dog images.
 
 ### Prerequisites
 
-Requires node version >= 12 && <= 14
+Requires node version 14
 
 ### Commands
 ```bash
